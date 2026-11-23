@@ -10,7 +10,7 @@ on:
 jobs:
   brthday:
     name: Brthday Clothing
-    runs-on: macos-14
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -30,7 +30,7 @@ jobs:
 
   questionbot:
     name: QuestionBot
-    runs-on: macos-14
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - name: Build
@@ -43,7 +43,7 @@ jobs:
 
   colormix:
     name: ColorMix
-    runs-on: macos-14
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - name: Build
@@ -56,7 +56,7 @@ jobs:
 
   bouncyball:
     name: BouncyBall
-    runs-on: macos-14
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - name: Build
