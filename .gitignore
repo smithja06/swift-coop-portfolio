@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+__MACOSX/
+._*
+
+# Xcode per-user / build state
+xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+*.xcscmblueprint
+timeline.xctimeline
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Firebase config (contains project API keys) - keep it out of public repos
+GoogleService-Info.plist

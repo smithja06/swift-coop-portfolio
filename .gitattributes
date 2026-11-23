@@ -1,0 +1,12 @@
+# Normalize text files to LF in the repo (Xcode / macOS friendly)
+* text=auto eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.key binary
+*.mov binary
+*.mp4 binary
+*.MP4 binary

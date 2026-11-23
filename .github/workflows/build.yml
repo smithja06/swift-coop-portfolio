@@ -1,0 +1,69 @@
+# Builds every app on a GitHub-hosted Mac so the projects can be verified without owning a Mac.
+# Results appear in the repo's "Actions" tab after each push.
+name: Build iOS apps
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  brthday:
+    name: Brthday Clothing
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      # The real Firebase config is git-ignored. The build only needs the file to exist,
+      # so CI uses the placeholder template (the app is compiled, not run).
+      - name: Use placeholder Firebase config
+        run: cp "02-Brthday-iOS-App/BrthdayApp/GoogleService-Info.plist.example" "02-Brthday-iOS-App/BrthdayApp/GoogleService-Info.plist"
+
+      - name: Build
+        run: |
+          xcodebuild build \
+            -project "02-Brthday-iOS-App/BrthdayApp/Brthday demo.xcodeproj" \
+            -scheme "Brthday demo" \
+            -sdk iphonesimulator \
+            -destination "generic/platform=iOS Simulator" \
+            CODE_SIGNING_ALLOWED=NO
+
+  questionbot:
+    name: QuestionBot
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          xcodebuild build \
+            -project "01-Swift-Coop-Mini-Apps/QuestionBot/QuestionBot.xcodeproj" \
+            -target QuestionBot \
+            -sdk iphonesimulator \
+            CODE_SIGNING_ALLOWED=NO
+
+  colormix:
+    name: ColorMix
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          xcodebuild build \
+            -project "01-Swift-Coop-Mini-Apps/ColorMix/ColorMix.xcodeproj" \
+            -target ColorMix \
+            -sdk iphonesimulator \
+            CODE_SIGNING_ALLOWED=NO
+
+  bouncyball:
+    name: BouncyBall
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          xcodebuild build \
+            -project "01-Swift-Coop-Mini-Apps/BouncyBall/BouncyBall.xcodeproj" \
+            -scheme BouncyBall \
+            -sdk iphonesimulator \
+            -destination "generic/platform=iOS Simulator" \
+            CODE_SIGNING_ALLOWED=NO
