@@ -12,7 +12,7 @@ jobs:
     name: Brthday Clothing
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # The real Firebase config is git-ignored. The build only needs the file to exist,
       # so CI uses the placeholder template (the app is compiled, not run).
@@ -32,7 +32,7 @@ jobs:
     name: QuestionBot
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Build
         run: |
           xcodebuild build \
@@ -45,7 +45,7 @@ jobs:
     name: ColorMix
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Build
         run: |
           xcodebuild build \
@@ -58,7 +58,7 @@ jobs:
     name: BouncyBall
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Build
         run: |
           xcodebuild build \
